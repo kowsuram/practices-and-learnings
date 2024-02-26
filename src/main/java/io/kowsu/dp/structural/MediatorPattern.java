@@ -60,7 +60,7 @@ class TraderService {
     }
 
     public void placeCustomOrder(String exchange) {
-        //grow is a mediator in between of bse and nse
+        //grow is a mediator in between traders and exchanges (bse and nse)
         System.out.println("Trader is placing an order with " + exchange);
         this.growwService.placeOrder(exchange);
     }
