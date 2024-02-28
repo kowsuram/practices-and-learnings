@@ -1,4 +1,4 @@
-package io.kowsu.dp.structural;
+package io.kowsu.dp.behavioral;
 
 /*
     @created February/23/2024 - 4:19 PM
