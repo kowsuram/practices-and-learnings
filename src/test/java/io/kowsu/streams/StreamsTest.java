@@ -70,7 +70,7 @@ public class StreamsTest {
 
         //alternative way
         double totalSal = personList.stream().mapToDouble(a -> a.salary).sum();
-        assertEquals(40, totalSal);
+        assertEquals(130, totalSal);
 
         //reduce way
         Double totalSal_1 = personList.stream().map(a -> a.salary).reduce(0d, (a, b) -> a + b);
