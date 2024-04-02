@@ -19,7 +19,7 @@ import java.util.Objects;
  */
 public class Graph {
 
-    Map<String, List<Node>> graph;
+    Map<String, List<GraphNode>> graph;
     private boolean isBiDirectional;
 
     public Graph(boolean isBiDirectional) {
@@ -38,11 +38,11 @@ public class Graph {
         assert graph.containsKey(destVtx);
 
         if(graph.containsKey(srcVtx) && !graph.get(srcVtx).contains(destVtx)) {
-            graph.get(srcVtx).add(new Node(destVtx));
+            graph.get(srcVtx).add(new GraphNode(destVtx));
         }
         if(isBiDirectional) {
             if(graph.containsKey(destVtx) && !graph.get(destVtx).contains(srcVtx)) {
-                graph.get(destVtx).add(new Node(srcVtx));
+                graph.get(destVtx).add(new GraphNode(srcVtx));
             }
         }
     }
@@ -62,10 +62,10 @@ public class Graph {
     }
 }
 
-class Node {
+class GraphNode {
     private String label;
 
-    public Node(String label) {
+    public GraphNode(String label) {
         this.label = label;
     }
 
@@ -77,8 +77,8 @@ class Node {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Node node = (Node) o;
-        return Objects.equals(label, node.label);
+        GraphNode graphNode = (GraphNode) o;
+        return Objects.equals(label, graphNode.label);
     }
 
     @Override

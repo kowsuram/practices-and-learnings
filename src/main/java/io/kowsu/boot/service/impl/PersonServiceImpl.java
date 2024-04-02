@@ -6,9 +6,12 @@ import io.kowsu.boot.dto.PersonDto;
 import io.kowsu.boot.mapper.PersonMapper;
 import io.kowsu.boot.service.PersonService;
 import lombok.AllArgsConstructor;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.support.TransactionTemplate;
 
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicReference;
 
 /*
     @created March/12/2024 - 8:02 PM
@@ -21,6 +24,7 @@ import java.util.Optional;
 public class PersonServiceImpl implements PersonService {
     private final PersonDao personDao;
     private final PersonMapper personMapper;
+    private final TransactionTemplate txTemplate;
 
     @Override
     public PersonDto createPerson(PersonDto personDto) {
