@@ -1,4 +1,4 @@
-package io.kowsu.basics;
+package io.kowsu.algos.back_tracking;
 
 import java.io.BufferedReader;
 import java.io.IOException;
