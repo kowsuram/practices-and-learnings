@@ -6,10 +6,9 @@ package io.kowsu.feign;
     @author k.ramanjineyulu
 */
 
-import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@FeignClient(name = "todos", path = "https://jsonplaceholder.typicode.com/")
+//@FeignClient(name = "todos", path = "https://jsonplaceholder.typicode.com/")
 public interface TodoFeignClient {
 
     @GetMapping(value = "todos", produces = "application/json", name = "getAllTodos")

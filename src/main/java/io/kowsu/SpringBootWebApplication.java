@@ -3,20 +3,16 @@ package io.kowsu;
 import io.kowsu.feign.TodoFeignClient;
 import io.kowsu.kafka.MessageProducer;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cloud.openfeign.EnableFeignClients;
-import org.springframework.cloud.openfeign.FeignAutoConfiguration;
 
 @SpringBootApplication
 @EnableCaching
 @AllArgsConstructor
-@EnableFeignClients
-@ImportAutoConfiguration({FeignAutoConfiguration.class})
+//@EnableFeignClients
+//@ImportAutoConfiguration({FeignAutoConfiguration.class})
 public class SpringBootWebApplication implements CommandLineRunner {
 
 	private final MessageProducer messageProducer;

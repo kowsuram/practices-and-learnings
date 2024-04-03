@@ -1,8 +1,5 @@
 package io.kowsu.algos.back_tracking;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,17 +10,19 @@ public class QueensProblem {
         Set<Integer> rowPlacements = new HashSet<>();
         Set<Integer> colPlacements = new HashSet<>();
         String queens[][] = new String[rows][cols];
-        int size = queens.length-1;
+        int size = queens.length - 1;
 
         //check for there will be no left side "Q" placement
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                if (!rowPlacements.contains(row) && !colPlacements.contains(col)
-                && positiveDiag(queens, row, col, size)
-                && negativeDiag(queens, row, col, size)) {
+                if (!rowPlacements.contains(row) && !colPlacements.contains(col)) {
                     rowPlacements.add(row);
                     colPlacements.add(col);
-                    queens[row][col] = "Q";
+                    if (!positiveDiag(queens, row, col, size) && !negativeDiag(queens, row, col, size)) {
+                        queens[row][col] = "Q";
+                    } else {
+                        queens[row][col] = "-";
+                    }
                 } else {
                     queens[row][col] = "-";
                 }
@@ -35,10 +34,9 @@ public class QueensProblem {
 
     public static boolean positiveDiag(String[][] queens, int row, int col, int size) {
         if (
-                (row + 1 <= size)
-                && (col + 1 <= size)
-                && queens[row+1][col+1] != null
-                && !queens[row+1][col+1].equals("Q")
+                (row + 1 <= size) && (col + 1 <= size)
+                        && (queens[row + 1][col + 1] != null)
+                        && !queens[row + 1][col + 1].equals("Q")
         ) {
             return true;
         }
@@ -47,9 +45,10 @@ public class QueensProblem {
 
     public static boolean negativeDiag(String[][] queens, int row, int col, int size) {
         if (
-                (row - 1 <= size && row - 1 >= 0)
-                && (col - 1 <= size && col - 1 >= 0)
-                && !queens[row-1][col-1].equals("Q")) {
+                ((row - 1 <= size) && (row - 1 >= 0))
+                        && ((col - 1 <= size) && (col - 1 >= 0))
+                        && !queens[row - 1][col - 1].equals("Q")
+        ) {
             return true;
         }
         return false;
