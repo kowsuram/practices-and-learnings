@@ -51,6 +51,11 @@ public class RecursionExamples {
         return result.concat(palindrome(word, result, len-1));
     }
 
+    public int sumOfDigits(int num) {
+        return 0;
+    }
+
+
 
     public static void main(String[] args) {
         RecursionExamples recursionExamples = new RecursionExamples();
@@ -64,10 +69,10 @@ public class RecursionExamples {
 //        recursionExamples.tables(13, 6, 9);
 
 
-        String palindrome = recursionExamples.palindrome("MADAS", "", 5);
-        System.out.printf("result %s", palindrome);
+//        String palindrome = recursionExamples.palindrome("MADAS", "", 5);
+//        System.out.printf("result %s", palindrome);
 //
-
+        System.out.println(1/10);
 
     }
 }
