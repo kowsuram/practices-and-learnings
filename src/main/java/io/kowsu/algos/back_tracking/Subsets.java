@@ -10,9 +10,10 @@ import java.util.List;
 
 public class Subsets {
     public static void calcSubset(List<Integer> list,
-                                  List<List<Integer> > res,
-                                  List<Integer> subset,
-                                  int index)
+                                  List<List<Integer> > res, //backtrack state
+                                  List<Integer> subset, //backtrack state
+                                  int index
+    )
     {
         // Add the current subset to the result list
         res.add(new ArrayList<>(subset));
@@ -28,7 +29,6 @@ public class Subsets {
             calcSubset(list, res, subset, i + 1);
 
             // Exclude the current element from the subset
-            // (backtracking)
             subset.remove(subset.size() - 1);
         }
     }
@@ -49,7 +49,7 @@ public class Subsets {
 
     public static void main(String[] args)
     {
-        List<Integer> array = List.of(1, 2, 3);
+        List<Integer> array = List.of(1, 2);
         List<List<Integer> > res = subsets(array);
 
         // Print the generated subsets
