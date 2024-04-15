@@ -1,10 +1,12 @@
 package io.kowsu.algos.sorting;
 
+
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class BubbleSortTest implements Sort {
 
