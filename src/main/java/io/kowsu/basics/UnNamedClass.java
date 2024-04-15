@@ -12,8 +12,6 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
-import java.util.stream.Collectors;
 
 void main() throws Exception {
     System.out.println("Hello world");
@@ -31,9 +29,9 @@ void hello() {
 void learn() throws Exception {
     List<Trip> tripsList = new ArrayList<>();
     for (int i = 1; i < 10; i++) {
-        TripDetails tripDetails = new TripDetails(i, "trip#"+i);
-        TripDetails modifiedTripDetails = new TripDetails(i, "trip#"+i);
-        TripDetails modifiedTripDetails1 = new TripDetails(i+1, "trip#"+(i+1));
+        TripDetails tripDetails = new TripDetails(i, "trip#" + i);
+        TripDetails modifiedTripDetails = new TripDetails(i, "trip#" + i);
+        TripDetails modifiedTripDetails1 = new TripDetails(i + 1, "trip#" + (i + 1));
         Trip trip = new Trip(List.of(tripDetails), List.of(modifiedTripDetails, modifiedTripDetails1));
         tripsList.add(trip);
     }
@@ -41,14 +39,16 @@ void learn() throws Exception {
     String jsonResponse = new ObjectMapper().writer().withDefaultPrettyPrinter().writeValueAsString(trips);
     System.out.println(jsonResponse);
 
-        trips.trips().stream().filter(a -> a.modified().stream().anyMatch(a -> a.tripNumber()));
+    trips.trips().stream().filter(a -> a.modified().stream().anyMatch(a -> a.tripNumber()));
 
 }
 
 
+record Trips(List<Trip> trips) {
+}
 
-record Trips(List<Trip> trips){}
+record Trip(List<TripDetails> original, List<TripDetails> modified) {
+}
 
-record Trip(List<TripDetails> original, List<TripDetails> modified){}
-
-record TripDetails(int tripNumber, String tripName){}
+record TripDetails(int tripNumber, String tripName) {
+}
