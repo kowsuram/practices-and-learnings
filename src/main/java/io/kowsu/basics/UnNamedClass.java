@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 void main() throws Exception {
     System.out.println("Hello world");
@@ -39,7 +40,7 @@ void learn() throws Exception {
     String jsonResponse = new ObjectMapper().writer().withDefaultPrettyPrinter().writeValueAsString(trips);
     System.out.println(jsonResponse);
 
-    trips.trips().stream().filter(a -> a.modified().stream().anyMatch(a -> a.tripNumber()));
+    trips.trips().stream().flatMap(t -> t.modified().stream()).collect(Collectors.maxBy(Comparator.comparingInt(a -> a.tripNumber())));
 
 }
 
