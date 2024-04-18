@@ -29,10 +29,10 @@ void hello() {
 
 void learn() throws Exception {
     List<Trip> tripsList = new ArrayList<>();
-    for (int i = 1; i < 10; i++) {
-        TripDetails tripDetails = new TripDetails(i, "trip#" + i);
-        TripDetails modifiedTripDetails = new TripDetails(i, "trip#" + i);
-        TripDetails modifiedTripDetails1 = new TripDetails(i + 1, "trip#" + (i + 1));
+    for (int i = 1; i < 4; i++) {
+        TripDetails tripDetails = new TripDetails(i, STR."trip#\{i}");
+        TripDetails modifiedTripDetails = new TripDetails(i, STR."trip#\{i}");
+        TripDetails modifiedTripDetails1 = new TripDetails(i + 1, STR."trip#\{i + 1}");
         Trip trip = new Trip(List.of(tripDetails), List.of(modifiedTripDetails, modifiedTripDetails1));
         tripsList.add(trip);
     }

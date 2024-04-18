@@ -22,7 +22,7 @@ public class PriorityDequeExamples {
         queue.add(new Job(5, Urgency.MEDIUM));
 
         while (!queue.isEmpty()) {
-            System.out.println(queue.poll());
+            System.out.println(STR."peek \{queue.peek()}");
         }
     }
 }
